@@ -1,0 +1,246 @@
+<%- include('partials/header') %>
+
+<style>
+  body {
+    margin: 0 0 10px 0;
+    background-image: linear-gradient(to bottom, #f1f6f9, #9ba4b5);
+    font-family:'Times New Roman', Times, serif;
+    color: #fff;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #9ba4b5;
+    padding: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .navbar.hidden {
+    top: -100px;
+  }
+
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-logo img {
+    height: 50px;
+    margin-right: 10px;
+  }
+
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+  }
+
+  .navbar-brand:hover {
+    color: #fff;
+  }
+
+  .navbar-toggler {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .navbar-toggler-label {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    cursor: pointer;
+  }
+
+  .navbar-toggler-label span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    transition: background-color 0.3s;
+  }
+
+  #navbar-toggle:checked ~ .navbar-toggler-label span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+    background-color: #fff;
+  }
+
+  #navbar-toggle:checked ~ .navbar-toggler-label span:nth-child(2) {
+    opacity: 0;
+  }
+
+  #navbar-toggle:checked ~ .navbar-toggler-label span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+    background-color: #fff;
+  }
+  #navbar-toggle {
+  display: none;
+}
+
+  .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    background-color: #9ba4b5;
+    border-radius: 5px;
+    padding: 10px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  #navbar-toggle:checked ~ .navbar-collapse {
+    opacity: 1;
+    pointer-events: auto;
+    background-color: #303D58;
+  }
+
+  .navbar-link {
+    padding: 5px 0 5px 0;
+    text-align: center;
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+   color:#fff;
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+
+  .navbar-link:hover {
+    color: #fff;
+  }
+
+  .card {
+    width: 90%;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.7);
+    transition: 0.3s ease-in-out;
+    background-color: #fff;
+    padding: 0 20px 20px 20px;
+    margin: 20px auto;
+    margin-top: 8rem;
+    background-image: linear-gradient(to bottom, #394867, #212a3e);
+  }
+
+  .col-sm-6 {
+    padding: 20px;
+  }
+
+  .About {
+    padding: 20px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .AboutUs {
+    padding-top: 10px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .img-about {
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
+</style>
+
+<div class="navbar">
+  <div class="navbar-logo">
+    <img
+      style="position: relative; bottom: 5px"
+      src="/photos/logo.png"
+      alt="Logo"
+    />
+    <h3 style="font-weight: bold; cursor: pointer; color: black; font-size: 26px;">
+      All In One Card
+    </h3>
+  </div>
+
+  <div class="navbar-right">
+    <div class="navbar-toggler">
+      <input type="checkbox" id="navbar-toggle" />
+      <label for="navbar-toggle" class="navbar-toggler-label">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <div class="navbar-collapse">
+        <a
+          style="text-decoration: none;"
+          href="/contact"
+          class="navbar-link"
+          >Contact</a
+        >
+        <a
+          style="text-decoration: none; "
+          href="/"
+          class="navbar-link"
+          >Home</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="row">
+    <div class="col-sm-12 AboutUs">
+      <div class="abUs">About Us</div>
+      Welcome to our platform! We are a team of fourth-grade university students
+      dedicated to revolutionizing transaction management and simplifying daily
+      tasks. Our personalized card is designed to streamline your transactions
+      and provide valuable insights into your financial habits. With a focus on
+      security and privacy, we prioritize protecting your data.<br /><br />
+      Join us on this journey to transform the way you handle your day-to-day
+      activities. <br />
+      Sincerely, <br />
+      The Fourth-Grade University Students
+      <hr />
+    </div>
+    <div class="col-sm-6 About">
+      Nabaz Esmail Muhammad <br />
+      <img class="img-about" src="photos/nabaz.jpg" alt="nabaz's photo" />
+    </div>
+    <div class="col-sm-6 About">
+      Pairaw Azad Jalal <br />
+      <img class="img-about" src="photos/pairaw.jpg" alt="pairaw's photo" />
+    </div>
+    <div class="col-sm-6 About">
+      Muhammad Dlashd Omer <br />
+      <img class="img-about" src="photos/hama.jpg" alt="hama's photo" />
+    </div>
+    <div class="col-sm-6 About">
+      Esmail Mustafa Hamamurad <br />
+      <img class="img-about" src="photos/esmail.jpg" alt="esmail's photo" />
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

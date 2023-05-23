@@ -1,0 +1,282 @@
+<%- include('partials/header') %>
+
+<style>
+  body {
+    margin: 0 0 3rem 0;
+    background-image: linear-gradient(to bottom, #f1f6f9, #9ba4b5);
+    font-family:'Times New Roman', Times, serif;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #9ba4b5;
+    margin-top: 0px;
+    padding: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    margin-top: 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-logo img {
+    height: 50px;
+    margin-right: 10px;
+  }
+
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .navbar-brand:hover {
+    color: #fff;
+  }
+
+  .navbar-toggler {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .navbar-toggler-label {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    cursor: pointer;
+  }
+
+  .navbar-toggler-label span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    transition: background-color 0.3s;
+  }
+
+  #navbar-toggle:checked ~ .navbar-toggler-label span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+    background-color: #fff;
+  }
+
+  #navbar-toggle:checked ~ .navbar-toggler-label span:nth-child(2) {
+    opacity: 0;
+  }
+
+  #navbar-toggle:checked ~ .navbar-toggler-label span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+    background-color: #fff;
+  }
+  #navbar-toggle {
+  display: none;
+}
+
+  .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    background-color: #9ba4b5;
+    border-radius: 5px;
+    padding: 10px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  #navbar-toggle:checked ~ .navbar-collapse {
+    opacity: 1;
+    pointer-events: auto;
+    background-color: #303D58;
+  }
+
+  .navbar-link {
+    padding: 5px 0 5px 0;
+    text-align: center;
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+   color:#fff;
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+
+  .navbar-link:hover {
+    color: #fff;
+  }
+
+  .welcome {
+    padding: 1rem 0 3rem 0;
+    margin-bottom: 0;
+  }
+
+  .card {
+    width: 100%;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.7);
+    transition: 0.3s ease-in-out;
+    margin: 0 auto;
+    margin-top: 5.5rem;
+    background-image: linear-gradient(to bottom, #394867, #212a3e);
+  }
+
+  .card-body {
+    padding: 2rem;
+  }
+
+  .card-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #fff;
+    font-family: cursive;
+  }
+
+  .card-text {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #fff;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 28px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 5px;
+  }
+
+  .btn-primary:hover {
+    background-color: #0060c0;
+    border-color: #0060c0;
+    color: #fff;
+  }
+
+  .btn-secondary {
+    background-color: rgb(28, 192, 28);
+    color: #fff;
+    padding: 12px 28px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 5px;
+  }
+
+  .btn-secondary:hover {
+    background-color: #3a943a;
+  }
+
+  .logo {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    max-height: 10rem;
+    margin-bottom: 2rem;
+  }
+</style>
+
+<div class="navbar">
+  <div class="navbar-logo">
+    <img
+      style="position: relative; bottom: 5px"
+      src="/photos/logo.png"
+      alt="Logo"
+    />
+    <h3 style="font-weight: bold; cursor: pointer; ">
+      All In One Card
+    </h3>
+  </div>
+
+  <div class="navbar-right">
+    <div class="navbar-toggler">
+      <input type="checkbox" id="navbar-toggle" />
+      <label for="navbar-toggle" class="navbar-toggler-label">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <div class="navbar-collapse">
+        <a
+          style="text-decoration: none;"
+          href="/contact"
+          class="navbar-link"
+          >Contact</a
+        >
+        <a
+          style="text-decoration: none; "
+          href="/About"
+          class="navbar-link"
+          >About</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="welcome">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <img src="/photos/logo.png" alt="Your logo or photo" class="logo" />
+            <h1 class="card-title">Welcome!</h1>
+            <p class="card-text">
+              "Create an account with us and we'll provide you with a custom
+              card for all your transactions and daily tasks."
+            </p>
+            <div class="d-flex justify-content-center">
+              <button
+                class="btn btn-primary mr-3"
+                onclick="location.href='/login';"
+              >
+                Login
+              </button>
+              <button
+                class="btn btn-secondary"
+                onclick="location.href='/register';"
+              >
+                Register
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
