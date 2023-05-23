@@ -1,6 +1,6 @@
 #enviroment
 *.env
-
+*.jshintrc
 # Prerequisites
 *.d
 
