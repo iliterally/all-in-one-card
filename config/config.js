@@ -1,10 +1,9 @@
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
-const sequelize = new Sequelize('ninjadb', 'admin', 'password', {
-  host: 'ninjadb.coz9vf0nu9h9.ap-south-1.rds.amazonaws.com',
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+  host: process.env.DB_HOST,
   dialect: 'mysql'
 });
 
 module.exports = sequelize;
-
